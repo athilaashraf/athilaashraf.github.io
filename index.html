@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Athila Ashraf | Full Stack Developer</title>
 <meta name="description" content="Full Stack Developer and AI applications builder in Dubai. Paid client project, live AI app, computer vision research.">
+<script>document.documentElement.className += ' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -75,6 +76,7 @@ h2{font-size:clamp(28px,5vw,40px);margin:0 0 8px;letter-spacing:-.02em}
 .tags li{font-family:var(--mono);font-size:12px;border:1px solid var(--line);padding:3px 9px;border-radius:6px;color:var(--muted)}
 .links-row{display:flex;flex-wrap:wrap;gap:12px}
 .links-row a{font-weight:700;font-size:14px}
+.pse{margin:0}
 .pse dt{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--warm);margin-top:14px}
 .pse dt:first-child{margin-top:0}
 .pse dd{margin:2px 0 0}
@@ -84,14 +86,13 @@ h2{font-size:clamp(28px,5vw,40px);margin:0 0 8px;letter-spacing:-.02em}
 .skills h3{margin:0 0 10px;font-size:17px}
 .skills .tags{margin:0}
 
-/* certs */
+/* certificates (plain HTML, no script needed) */
 .certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-.cert{padding:0;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.cert{display:block;padding:0;overflow:hidden;text-decoration:none;color:inherit}
 .cert img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--line)}
 .cert div{padding:14px 16px}
 .cert b{display:block}
 .cert small{color:var(--muted)}
-.cert.empty{border-style:dashed;cursor:default;padding:30px 16px;text-align:center;color:var(--muted)}
 
 /* education & contact */
 .edu{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -101,8 +102,9 @@ h2{font-size:clamp(28px,5vw,40px);margin:0 0 8px;letter-spacing:-.02em}
 .contact ul{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center}
 footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
 
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
-.reveal.in{opacity:1;transform:none}
+/* scroll reveal: only hides content when scripts are running */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.js .reveal.in{opacity:1;transform:none}
 
 @keyframes blink{50%{opacity:0}}
 @keyframes pulse{70%{box-shadow:0 0 0 9px #22C55E00}100%{box-shadow:0 0 0 0 #22C55E00}}
@@ -118,7 +120,7 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
+  .js .reveal{opacity:1;transform:none;transition:none}
   .role::after,.avail i{animation:none}
 }
 </style>
@@ -130,7 +132,7 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
 <nav>
   <div class="container nav-in">
     <a class="logo" href="#top">&lt;athila<span>/</span>&gt;</a>
-    <div class="links" id="links">
+    <div class="links" id="navlinks">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
@@ -147,7 +149,7 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
   <div class="container">
     <div class="avail"><i></i>Open to roles in Dubai, UAE | UAE dependent visa</div>
     <h1>Athila Ashraf</h1>
-    <p class="role" id="role" aria-label="Full Stack Developer | AI Applications"></p>
+    <p class="role" id="role">Full Stack Developer | AI Applications</p>
     <p class="lead">I build web applications and AI-powered tools with Python, from the first conversation about requirements to a live deployment.</p>
     <div class="cta">
       <a class="btn primary" href="mailto:athilaashrafp@gmail.com?subject=Hiring%20enquiry">Hire me</a>
@@ -170,7 +172,7 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
       <h2>About</h2>
       <p>I am an MCA graduate (2026) based in Dubai. I build web applications and AI-powered tools with Python, from the first conversation about requirements to a live deployment.</p>
       <p>I have delivered a paid billing system to a client, deployed a live AI tutoring app, and built computer vision and AI agent projects.</p>
-      <p><a href="https://www.youtube.com/watch?v=XlevF_dSk3E">Watch my video CV</a></p>
+      <p><a href="https://www.youtube.com/watch?v=XlevF_dSk3E" target="_blank" rel="noopener noreferrer">Watch my video CV</a></p>
     </div>
     <div class="card">
       <h3 style="margin-top:0">What I’m looking for</h3>
@@ -190,7 +192,7 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
           <span class="badge">Paid client project</span>
           <h3>Stock and Billing System</h3>
           <ul class="tags"><li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>SQLite</li></ul>
-          <div class="links-row"><a href="https://github.com/athilaashraf/braud-inventory">View code on GitHub</a></div>
+          <div class="links-row"><a href="https://github.com/athilaashraf/braud-inventory" target="_blank" rel="noopener noreferrer">View code on GitHub</a></div>
         </div>
         <dl class="pse">
           <dt>Problem</dt><dd>A wholesale clothing business needed a reliable way to manage stock and billing.</dd>
@@ -204,7 +206,7 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
           <span class="badge plain">Computer vision · MCA final-year project</span>
           <h3>Smart Traffic Monitoring System</h3>
           <ul class="tags"><li>Python</li><li>Flask</li><li>YOLOv8</li><li>SORT</li><li>OpenCV</li><li>NumPy</li></ul>
-          <div class="links-row"><a href="https://github.com/athilaashraf/trafficregulation">View code on GitHub</a></div>
+          <div class="links-row"><a href="https://github.com/athilaashraf/trafficregulation" target="_blank" rel="noopener noreferrer">View code on GitHub</a></div>
         </div>
         <dl class="pse">
           <dt>Problem</dt><dd>Traffic congestion is hard to measure and respond to without automated monitoring.</dd>
@@ -219,8 +221,8 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
           <h3>LearnIQ, an AI Tutoring App</h3>
           <ul class="tags"><li>Python</li><li>Flask</li><li>Groq LLM API</li><li>Render</li><li>Gunicorn</li></ul>
           <div class="links-row">
-            <a href="https://ai-tutor-5frh.onrender.com">Open live demo</a>
-            <a href="https://github.com/athilaashraf/LEARNIQ">View code on GitHub</a>
+            <a href="https://ai-tutor-5frh.onrender.com" target="_blank" rel="noopener noreferrer">Open live demo</a>
+            <a href="https://github.com/athilaashraf/LEARNIQ" target="_blank" rel="noopener noreferrer">View code on GitHub</a>
           </div>
         </div>
         <dl class="pse">
@@ -236,8 +238,8 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
           <h3>VOXEN, a Voice-Controlled AI Agent</h3>
           <ul class="tags"><li>Python</li><li>Streamlit</li><li>Groq Whisper</li><li>Groq LLaMA</li></ul>
           <div class="links-row">
-            <a href="https://youtu.be/gQPRK--LxEM">Watch demo video</a>
-            <a href="https://github.com/athilaashraf/VOXEN">View code on GitHub</a>
+            <a href="https://youtu.be/gQPRK--LxEM" target="_blank" rel="noopener noreferrer">Watch demo video</a>
+            <a href="https://github.com/athilaashraf/VOXEN" target="_blank" rel="noopener noreferrer">View code on GitHub</a>
           </div>
         </div>
         <dl class="pse">
@@ -252,7 +254,7 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
           <span class="badge plain">Full stack · Machine learning</span>
           <h3>SymptoCare, a Hospital Management System</h3>
           <ul class="tags"><li>Python</li><li>Django</li><li>MySQL</li><li>scikit-learn</li><li>REST APIs</li></ul>
-          <div class="links-row"><a href="https://github.com/athilaashraf/SYMPTOCARE">View code on GitHub</a></div>
+          <div class="links-row"><a href="https://github.com/athilaashraf/SYMPTOCARE" target="_blank" rel="noopener noreferrer">View code on GitHub</a></div>
         </div>
         <dl class="pse">
           <dt>Problem</dt><dd>Hospitals, doctors and patients need one system to work together, with quick first guidance from symptoms.</dd>
@@ -283,7 +285,26 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
   <div class="container">
     <h2 class="reveal">Certificates</h2>
     <p class="sub reveal">Select a certificate to open it in a new tab.</p>
-    <div class="certs reveal" id="certs"></div>
+    <div class="certs reveal">
+
+      <a class="card cert" href="synergy-2026.jpg" target="_blank" rel="noopener noreferrer">
+        <img src="synergy-2026.jpg" alt="Synergy 2026 conference certificate" loading="lazy">
+        <div><b>Research paper presentation, International Conference Synergy 2026</b><small>MTM College of Arts, Science and Commerce</small></div>
+      </a>
+
+      <a class="card cert" href="git-sync-n-spark.png" target="_blank" rel="noopener noreferrer">
+        <img src="git-sync-n-spark.png" alt="Essentials of Git certificate" loading="lazy">
+        <div><b>Essentials of Git</b><small>Sync N Spark, MES College of Engineering, Nov 2024</small></div>
+      </a>
+
+      <!-- To add the Google certificate: upload the image, delete the two comment marks below, and match the file name.
+      <a class="card cert" href="google-cybersecurity.jpg" target="_blank" rel="noopener noreferrer">
+        <img src="google-cybersecurity.jpg" alt="Google Cybersecurity certificate" loading="lazy">
+        <div><b>Google Cybersecurity Professional Certificate</b><small>Google, via Coursera</small></div>
+      </a>
+      -->
+
+    </div>
   </div>
 </section>
 
@@ -307,8 +328,8 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
     <ul>
       <li><a href="mailto:athilaashrafp@gmail.com">athilaashrafp@gmail.com</a></li>
       <li><a href="tel:+971541508784">+971 54 150 8784</a></li>
-      <li><a href="https://www.linkedin.com/in/athila-ashraf">LinkedIn</a></li>
-      <li><a href="https://github.com/athilaashraf">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/athila-ashraf" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://github.com/athilaashraf" target="_blank" rel="noopener noreferrer">GitHub</a></li>
     </ul>
   </div>
 </section>
@@ -317,81 +338,81 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:14px}
 <footer>© 2026 Athila Ashraf. Dubai, UAE.</footer>
 </div>
 
+<!-- Each script block works on its own, so one failure cannot hide the page -->
+
 <script>
-/* ===== Certificates: add yours here =====
-   Upload the image next to index.html, then add one line.
-   Every line must end with a comma. */
-const CERTS = [
-  {title:"Research paper presentation, International Conference Synergy 2026", issuer:"MTM College of Arts, Science and Commerce", img:"synergy-2026.jpg"},
-  {title:"Essentials of Git", issuer:"Sync N Spark, MES College of Engineering, Nov 2024", img:"git-sync-n-spark.png"},
-  // {title:"Google Cybersecurity Professional Certificate", issuer:"Google, via Coursera", img:"google-cybersecurity.jpg"},
-];
+/* theme toggle */
+(function(){
+  try{
+    var root = document.documentElement, btn = document.getElementById('theme');
+    function setTheme(t){ root.setAttribute('data-theme', t); btn.textContent = t === 'dark' ? '☀' : '☾'; try{ localStorage.setItem('theme', t); }catch(e){} }
+    var saved = null; try{ saved = localStorage.getItem('theme'); }catch(e){}
+    setTheme(saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+    btn.addEventListener('click', function(){ setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); });
+  }catch(e){}
+})();
+</script>
 
-/* theme */
-const root = document.documentElement, tbtn = document.getElementById('theme');
-function setTheme(t){ root.dataset.theme = t; tbtn.textContent = t==='dark' ? '☀' : '☾'; try{localStorage.setItem('theme',t)}catch(e){} }
-let saved = null; try{saved = localStorage.getItem('theme')}catch(e){}
-setTheme(saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
-tbtn.onclick = () => { setTheme(root.dataset.theme==='dark' ? 'light' : 'dark'); };
-
+<script>
 /* mobile menu */
-const menu = document.getElementById('menu'), links = document.getElementById('links');
-menu.onclick = () => { const o = links.classList.toggle('open'); menu.setAttribute('aria-expanded', o); };
-links.addEventListener('click', e => { if(e.target.tagName==='A') links.classList.remove('open'); });
+(function(){
+  try{
+    var menu = document.getElementById('menu'), nav = document.getElementById('navlinks');
+    menu.addEventListener('click', function(){ var o = nav.classList.toggle('open'); menu.setAttribute('aria-expanded', o); });
+    nav.addEventListener('click', function(e){ if(e.target.tagName === 'A') nav.classList.remove('open'); });
+  }catch(e){}
+})();
+</script>
 
-/* typed role */
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const roleEl = document.getElementById('role'), roleText = 'Full Stack Developer | AI Applications';
-if(reduce){ roleEl.textContent = roleText; } else { let i=0; (function t(){ roleEl.textContent = roleText.slice(0,++i); if(i<roleText.length) setTimeout(t,45); })(); }
+<script>
+/* scroll reveal, with a safety net so content can never stay hidden */
+(function(){
+  try{
+    var items = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold: 0.05});
+    items.forEach(function(el){ io.observe(el); });
+    window.__revealOk = true;
+  }catch(e){}
+  setTimeout(function(){
+    if(!window.__revealOk){ document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); }
+  }, 1500);
+})();
+</script>
 
-/* scroll reveal */
-const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-/* certificates: each opens in a new tab */
-const grid = document.getElementById('certs');
-if(CERTS.length){
-  CERTS.forEach(c => {
-    const b = document.createElement('button'); b.className = 'card cert';
-    b.innerHTML = `<img src="${c.img}" alt="${c.title}" loading="lazy"><div><b>${c.title}</b><small>${c.issuer||''}</small></div>`;
-    b.onclick = () => { window.open(c.img, '_blank', 'noopener'); };
-    grid.appendChild(b);
-  });
-} else {
-  grid.innerHTML = '<div class="card cert empty">Certificates coming soon.</div>';
-}
-
-/* external links open in a new tab */
-document.querySelectorAll('a[href^="http"]').forEach(a => {
-  a.target = '_blank';
-  a.rel = 'noopener noreferrer';
-});
-
+<script>
 /* background: vehicle-detection boxes drifting along lanes */
-const cv = document.getElementById('bg'), cx = cv.getContext('2d');
-let W, H, objs = [];
-const labels = ['car 0.93','car 0.89','truck 0.91','bus 0.87','car 0.95'];
-function size(){ W = cv.width = innerWidth; H = cv.height = innerHeight;
-  const n = Math.max(6, Math.min(14, Math.floor(W/110)));
-  objs = Array.from({length:n}, (_,i) => ({ lane:i%3, x:Math.random()*W, v:.35+Math.random()*.6, w:34+Math.random()*30, label:labels[i%labels.length] })); }
-function draw(){
-  const c = getComputedStyle(root).getPropertyValue('--canvas').trim();
-  cx.clearRect(0,0,W,H);
-  cx.lineWidth = 1; cx.setLineDash([10,14]); cx.strokeStyle = `rgba(${c},.14)`;
-  for(let l=0;l<3;l++){ const y = H*(.3+l*.22); cx.beginPath(); cx.moveTo(0,y+26); cx.lineTo(W,y+26); cx.stroke(); }
-  cx.setLineDash([]); cx.font = '11px JetBrains Mono, monospace';
-  objs.forEach(o => {
-    if(!reduce){ o.x += o.v * (o.lane===1 ? -1 : 1); if(o.x>W+80) o.x=-80; if(o.x<-80) o.x=W+80; }
-    const y = H*(.3+o.lane*.22), h = o.w*.55;
-    cx.strokeStyle = `rgba(${c},.45)`; cx.strokeRect(o.x,y,o.w,h);
-    cx.fillStyle = `rgba(${c},.55)`; cx.fillText(o.label, o.x, y-5);
-    cx.fillStyle = `rgba(${c},.12)`; cx.fillRect(o.x,y,o.w,h);
-  });
-  if(!reduce) requestAnimationFrame(draw);
-}
-addEventListener('resize', () => { size(); if(reduce) draw(); });
-size(); draw();
-tbtn.addEventListener('click', () => { if(reduce) draw(); });
+(function(){
+  try{
+    var root = document.documentElement, cv = document.getElementById('bg'), cx = cv.getContext('2d');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var W, H, objs = [], labels = ['car 0.93','car 0.89','truck 0.91','bus 0.87','car 0.95'];
+    function size(){
+      W = cv.width = window.innerWidth; H = cv.height = window.innerHeight;
+      var n = Math.max(6, Math.min(14, Math.floor(W/110)));
+      objs = [];
+      for(var i=0;i<n;i++){ objs.push({lane:i%3, x:Math.random()*W, v:0.35+Math.random()*0.6, w:34+Math.random()*30, label:labels[i%labels.length]}); }
+    }
+    function draw(){
+      var c = getComputedStyle(root).getPropertyValue('--canvas').trim() || '31,122,130';
+      cx.clearRect(0,0,W,H);
+      cx.lineWidth = 1; cx.setLineDash([10,14]); cx.strokeStyle = 'rgba('+c+',.14)';
+      for(var l=0;l<3;l++){ var ly = H*(0.3+l*0.22); cx.beginPath(); cx.moveTo(0,ly+26); cx.lineTo(W,ly+26); cx.stroke(); }
+      cx.setLineDash([]); cx.font = '11px monospace';
+      objs.forEach(function(o){
+        if(!reduce){ o.x += o.v * (o.lane===1 ? -1 : 1); if(o.x>W+80) o.x=-80; if(o.x<-80) o.x=W+80; }
+        var y = H*(0.3+o.lane*0.22), h = o.w*0.55;
+        cx.strokeStyle = 'rgba('+c+',.45)'; cx.strokeRect(o.x,y,o.w,h);
+        cx.fillStyle = 'rgba('+c+',.55)'; cx.fillText(o.label, o.x, y-5);
+        cx.fillStyle = 'rgba('+c+',.12)'; cx.fillRect(o.x,y,o.w,h);
+      });
+      if(!reduce) requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize', function(){ size(); if(reduce) draw(); });
+    size(); draw();
+  }catch(e){}
+})();
 </script>
 </body>
 </html>
