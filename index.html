@@ -85,6 +85,7 @@
 
     <h2>Projects</h2>
 
+    <!-- 1. FREELANCE BILLING SYSTEM -->
     <div class="project">
       <h3>Stock and Billing System</h3>
       <p class="label">Paid client project</p>
@@ -97,7 +98,71 @@
       </p>
       <p>The client reported that the system helped their business significantly.</p>
       <p class="tech">Python, Flask, SQLAlchemy, SQLite</p>
-      <p><a href="https://github.com/athilaashraf/braud-inventory">View code on GitHub</a></p>
+      <p><a href="PASTE_FREELANCE_GITHUB_LINK">View code on GitHub</a></p>
+    </div>
+
+    <!-- 2. SMART TRAFFIC MONITORING -->
+    <div class="project">
+      <h3>Smart Traffic Monitoring System</h3>
+      <p class="label">Computer vision, MCA final-year project</p>
+      <p>
+        Detects and tracks vehicles in real time with YOLOv8 and SORT, reaching
+        89.3% mAP@0.5 at 42 ms per frame. It counts vehicles by lane with 92.8%
+        accuracy, estimates congestion, and sends automated email alerts. A Flask
+        back end provides separate admin and police dashboards. I presented my
+        related research at the International Conference Synergy 2026.
+      </p>
+      <p class="tech">Python, Flask, YOLOv8, SORT, OpenCV, NumPy</p>
+      <p><a href="PASTE_TRAFFIC_GITHUB_LINK">View code on GitHub</a></p>
+    </div>
+
+    <!-- 3. LEARNIQ -->
+    <div class="project">
+      <h3>LearnIQ, an AI Tutoring App</h3>
+      <p class="label">Live AI application</p>
+      <p>
+        Generates explanations, quizzes and feedback for different subjects and
+        grade levels using a three-step prompt pipeline. Deployed on Render. When
+        the AI model it used was discontinued, I found the cause and fixed the
+        production failure.
+      </p>
+      <p class="tech">Python, Flask, Groq LLM API, Render, Gunicorn</p>
+      <p>
+        <a href="PASTE_LEARNIQ_LIVE_LINK">Open live demo</a> |
+        <a href="PASTE_LEARNIQ_GITHUB_LINK">View code on GitHub</a>
+      </p>
+    </div>
+
+    <!-- 4. SYMPTOCARE -->
+    <div class="project">
+      <h3>SymptoCare, a Hospital Management System</h3>
+      <p class="label">Full-stack web application with machine learning</p>
+      <p>
+        A Django and MySQL application with a normalised database of 13+ tables,
+        REST APIs, and separate modules for admins, doctors, hospitals and
+        patients. A Random Forest model trained on 4,920 records, with 132
+        symptom features and 41 diseases, predicts diseases from symptoms.
+      </p>
+      <p class="tech">Python, Django, MySQL, scikit-learn</p>
+      <p><a href="PASTE_SYMPTOCARE_GITHUB_LINK">View code on GitHub</a></p>
+    </div>
+
+    <!-- 5. VOXEN -->
+    <div class="project">
+      <h3>VOXEN, a Voice-Controlled AI Agent</h3>
+      <p class="label">AI agent</p>
+      <p>
+        Transcribes speech, uses an LLM to sort each request into one of four
+        intents (code generation, file creation, summarisation, chat), and runs
+        it through a modular tool engine. I tested local Whisper against a hosted
+        speech API and moved to the hosted one because the local version was too
+        slow and memory-heavy.
+      </p>
+      <p class="tech">Python, Streamlit, Groq Whisper, Groq LLaMA</p>
+      <p>
+        <a href="https://youtu.be/gQPRK--LxEM">Watch demo video</a> |
+        <a href="athilaashraf/VOXEN">View code on GitHub</a>
+      </p>
     </div>
 
   </main>
