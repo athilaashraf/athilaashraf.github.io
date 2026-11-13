@@ -1,237 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Athila Ashraf | Software Developer</title>
-  <style>
-        dl {
-      margin: 0;
-    }
-    dt {
-      font-weight: bold;
-      color: #1B2A49;
-      margin-top: 14px;
-    }
-    dd {
-      margin: 2px 0 0 0;
-    }
-    ul.plain {
-      list-style: none;
-      padding: 0;
-    }
-    ul.plain li {
-      padding: 5px 0;
-    }
-    .button {
-      display: inline-block;
-      background: #1B2A49;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      margin-top: 10px;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      color: #222;
-      line-height: 1.6;
-    }
-    header {
-      background: #1B2A49;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    header h1 {
-      margin: 0 0 10px;
-      font-size: 42px;
-    }
-    header p {
-      margin: 4px 0;
-      font-size: 18px;
-    }
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    h2 {
-      color: #1F7A82;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 6px;
-      margin-top: 40px;
-    }
-    .project {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 18px;
-      margin: 18px 0;
-    }
-    .project h3 {
-      margin: 0 0 4px;
-      color: #1B2A49;
-    }
-    .label {
-      color: #1F7A82;
-      font-size: 14px;
-      font-weight: bold;
-      margin: 0 0 8px;
-    }
-    .tech {
-      color: #555;
-      font-size: 14px;
-    }
-    a {
-      color: #0A1F7A;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Athila Ashraf | Software Developer</title>
+<meta name="description" content="Full stack and AI software developer in Dubai. Paid client project, live AI app, computer vision research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F8FB; --surface:#FFFFFF; --text:#14203A; --muted:#51607A; --line:#D9E1EC;
+  --accent:#1F7A82; --accent-ink:#FFFFFF; --warm:#B7791F; --canvas:31,122,130;
+  --sans:"Space Grotesk",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+:root[data-theme="dark"]{
+  --bg:#0A1224; --surface:#111B33; --text:#E8EDF7; --muted:#9BA8C2; --line:#223152;
+  --accent:#3CC8C0; --accent-ink:#06121F; --warm:#F5B94A; --canvas:60,200,192;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;transition:background .3s,color .3s}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--warm);outline-offset:3px;border-radius:4px}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.wrap{position:relative;z-index:1}
+.container{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--mono);font-weight:600;color:var(--text);text-decoration:none;font-size:18px}
+.logo span{color:var(--accent)}
+.links{display:flex;align-items:center;gap:22px}
+.links a{color:var(--muted);text-decoration:none;font-weight:500;font-size:15px}
+.links a:hover{color:var(--text)}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;border:2px solid var(--accent);cursor:pointer;font-family:var(--sans);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.links .btn.primary{color:var(--accent-ink);padding:8px 16px}
+.icon-btn{background:none;border:1px solid var(--line);color:var(--text);width:40px;height:40px;border-radius:8px;cursor:pointer;font-size:18px}
+#menu{display:none}
+
+/* hero */
+.hero{padding:96px 0 56px}
+.hero h1{font-size:clamp(44px,9vw,92px);line-height:1;margin:0 0 14px;letter-spacing:-.03em}
+.role{font-family:var(--mono);color:var(--accent);font-size:clamp(15px,2.4vw,20px);min-height:1.6em;margin:0 0 20px}
+.role::after{content:"";display:inline-block;width:9px;height:1.1em;background:var(--warm);margin-left:4px;vertical-align:-3px;animation:blink 1s steps(1) infinite}
+.lead{max-width:60ch;font-size:19px;color:var(--muted);margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.avail{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:99px;font-family:var(--mono);font-size:13px;margin-bottom:22px}
+.avail i{width:9px;height:9px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 0 #22C55E88;animation:pulse 2s infinite}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+.stat b{display:block;font-size:28px;font-family:var(--mono);color:var(--accent);line-height:1.2}
+.stat span{font-size:14px;color:var(--muted)}
+
+/* sections */
+section{padding:64px 0}
+h2{font-size:clamp(28px,5vw,40px);margin:0 0 8px;letter-spacing:-.02em}
+.sub{color:var(--muted);margin:0 0 32px;max-width:60ch}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:32px}
+.about p{margin:0 0 14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+
+/* projects */
+.projects{display:grid;gap:22px}
+.proj{display:grid;grid-template-columns:1fr 1.5fr;gap:28px}
+.proj.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.badge{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent-ink);background:var(--warm);padding:3px 10px;border-radius:99px;margin-bottom:10px}
+.badge.plain{background:var(--line);color:var(--text)}
+.proj h3{margin:0 0 10px;font-size:24px;line-height:1.2}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px;padding:0;list-style:none}
+.tags li{font-family:var(--mono);font-size:12px;border:1px solid var(--line);padding:3px 9px;border-radius:6px;color:var(--muted)}
+.links-row{display:flex;flex-wrap:wrap;gap:12px}
+.links-row a{font-weight:700;font-size:14px}
+.pse dt{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--warm);margin-top:14px}
+.pse dt:first-child{margin-top:0}
+.pse dd{margin:2px 0 0}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skills h3{margin:0 0 10px;font-size:17px}
+.skills .tags{margin:0}
+
+/* certs */
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.cert{padding:0;overflow:hidden;cursor:zoom-in;text-align:left;font:inherit;color:inherit}
+.cert img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--line)}
+.cert div{padding:14px 16px}
+.cert b{display:block}
+.cert small{color:var(--muted)}
+.cert.empty{border-style:dashed;cursor:default;padding:30px 16px;text-align:center;color:var(--muted)}
+#lightbox{position:fixed;inset:0;background:#000d;display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+#lightbox.open{display:flex}
+#lightbox img{max-width:100%;max-height:90vh;border-radius:8px}
+
+/* education & contact */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.edu h3{margin:0 0 4px;font-size:18px}
+.contact{text-align:center}
+.contact .cta{justify-content:center;margin-top:20px}
+.contact ul{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center}
+footer{padding:28px 0 90px;text-align:center;color:var(--muted);font-size:14px}
+
+/* mobile hire bar */
+.mobar{display:none}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+
+@keyframes blink{50%{opacity:0}}
+@keyframes pulse{70%{box-shadow:0 0 0 9px #22C55E00}100%{box-shadow:0 0 0 0 #22C55E00}}
+
+@media(max-width:820px){
+  .links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 20px 16px}
+  .links.open{display:flex}
+  .links a{padding:12px 0}
+  .links .btn{text-align:center;margin-top:8px}
+  #menu{display:block}
+  .stats{grid-template-columns:1fr 1fr}
+  .about,.proj,.edu,.skills{grid-template-columns:1fr}
+  .hero{padding-top:56px}
+  .mobar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:10px;padding:10px 14px;background:var(--bg);border-top:1px solid var(--line)}
+  .mobar .btn{flex:1;text-align:center;padding:12px 8px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .role::after,.avail i{animation:none}
+}
+</style>
 </head>
 <body>
+<canvas id="bg" aria-hidden="true"></canvas>
 
-  <header>
+<div class="wrap">
+<nav>
+  <div class="container nav-in">
+    <a class="logo" href="#top">&lt;athila<span>/</span>&gt;</a>
+    <div class="links" id="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <button class="icon-btn" id="theme" aria-label="Switch between light and dark mode">☾</button>
+      <a class="btn primary" href="mailto:athilaashrafp@gmail.com?subject=Hiring%20enquiry">Hire me</a>
+    </div>
+    <button class="icon-btn" id="menu" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container">
+    <div class="avail"><i></i>Open to roles in Dubai, UAE</div>
     <h1>Athila Ashraf</h1>
-    <p>Software Developer | Full Stack | AI Applications</p>
-    <p>Dubai, UAE</p>
-  </header>
-
-  <main>
-
-    <h2>About</h2>
-    <p>
-      I am an MCA graduate (2026) based in Dubai. I build web applications and
-      AI-powered tools with Python, from the first conversation about
-      requirements to a live deployment.
-    </p>
-    <p>
-      I have delivered a paid billing system to a client, deployed a live AI
-      tutoring app, and built computer vision and AI agent projects.
-    </p>
-
-    <h2>Projects</h2>
-
-    <!-- 1. FREELANCE BILLING SYSTEM -->
-    <div class="project">
-      <h3>Stock and Billing System</h3>
-      <p class="label">Paid client project</p>
-      <p>
-        Built for a wholesale clothing business. I gathered the requirements,
-        built the application and installed it on the client's computer. It
-        handles invoicing with percentage or fixed discounts, PDF invoices,
-        low-stock alerts, and restores stock automatically when a bill is
-        cancelled. Access is protected by an admin login with hashed credentials.
-      </p>
-      <p>The client reported that the system helped their business significantly.</p>
-      <p class="tech">Python, Flask, SQLAlchemy, SQLite</p>
-      <p><a href="https://github.com/athilaashraf/braud-inventory">View code on GitHub</a></p>
+    <p class="role" id="role" aria-label="Software Developer"></p>
+    <p class="lead">I build web applications and AI-powered tools with Python, from the first conversation about requirements to a live deployment.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:athilaashrafp@gmail.com?subject=Hiring%20enquiry">Hire me</a>
+      <a class="btn ghost" href="Athila_Ashraf_CV.pdf" download>Download CV</a>
+      <a class="btn ghost" href="#projects">View projects</a>
     </div>
-
-    <!-- 2. SMART TRAFFIC MONITORING -->
-    <div class="project">
-      <h3>Smart Traffic Monitoring System</h3>
-      <p class="label">Computer vision, MCA final-year project</p>
-      <p>
-        Detects and tracks vehicles in real time with YOLOv8 and SORT, reaching
-        89.3% mAP@0.5 at 42 ms per frame. It counts vehicles by lane with 92.8%
-        accuracy, estimates congestion, and sends automated email alerts. A Flask
-        back end provides separate admin and police dashboards. I presented my
-        related research at the International Conference Synergy 2026.
-      </p>
-      <p class="tech">Python, Flask, YOLOv8, SORT, OpenCV, NumPy</p>
-      <p><a href="https://github.com/athilaashraf/trafficregulation">View code on GitHub</a></p>
+    <div class="stats">
+      <div class="stat"><b>1</b><span>Paid client project delivered</span></div>
+      <div class="stat"><b>89.3%</b><span>mAP@0.5 in vehicle detection</span></div>
+      <div class="stat"><b>Live</b><span>AI tutoring app on Render</span></div>
+      <div class="stat"><b>2026</b><span>Presented at Synergy conference</span></div>
     </div>
+  </div>
+</header>
 
-    <!-- 3. LEARNIQ -->
-    <div class="project">
-      <h3>LearnIQ, an AI Tutoring App</h3>
-      <p class="label"></p>
-      <p>
-        Generates explanations, quizzes and feedback for different subjects and
-        grade levels using a three-step prompt pipeline. Deployed on Render. When
-        the AI model it used was discontinued, I found the cause and fixed the
-        production failure.
-      </p>
-      <p class="tech">Python, Flask, Groq LLM API, Render, Gunicorn</p>
-      <p>
-        <a href="https://ai-tutor-5frh.onrender.com">Open live demo</a> |
-        <a href="https://github.com/athilaashraf/LEARNIQ">View code on GitHub</a>
-      </p>
+<main>
+<section id="about">
+  <div class="container about reveal">
+    <div>
+      <h2>About</h2>
+      <p>I am an MCA graduate (2026) based in Dubai. I build web applications and AI-powered tools with Python, from the first conversation about requirements to a live deployment.</p>
+      <p>I have delivered a paid billing system to a client, deployed a live AI tutoring app, and built computer vision and AI agent projects.</p>
+      <p><a href="https://www.youtube.com/watch?v=XlevF_dSk3E">Watch my video CV</a></p>
     </div>
-
-    <!-- 4. VOXEN -->
-    <div class="project">
-      <h3>VOXEN, a Voice-Controlled AI Agent</h3>
-      <p class="label">AI agent</p>
-      <p>
-        Transcribes speech, uses an LLM to sort each request into one of four
-        intents (code generation, file creation, summarisation, chat), and runs
-        it through a modular tool engine. I tested local Whisper against a hosted
-        speech API and moved to the hosted one because the local version was too
-        slow and memory-heavy.
-      </p>
-      <p class="tech">Python, Streamlit, Groq Whisper, Groq LLaMA</p>
-      <p>
-        <a href="https://youtu.be/gQPRK--LxEM">Watch demo video</a> |
-        <a href="https://github.com/athilaashraf/VOXEN">View code on GitHub</a>
-      </p>
+    <div class="card">
+      <h3 style="margin-top:0">What I’m looking for</h3>
+      <p style="margin:0">Software developer, full stack and AI roles in Dubai.</p>
     </div>
-        <!-- 4. SYMPTOCARE -->
-    <div class="project">
-      <h3>SymptoCare, a Hospital Management System</h3>
-      <p class="label">Full-stack web application with machine learning</p>
-      <p>
-        A Django and MySQL application with a normalised database of 13+ tables,
-        REST APIs, and separate modules for admins, doctors, hospitals and
-        patients. A Random Forest model trained on 4,920 records, with 132
-        symptom features and 41 diseases, predicts diseases from symptoms.
-      </p>
-      <p class="tech">Python, Django, MySQL, scikit-learn</p>
-      <p><a href="https://github.com/athilaashraf/SYMPTOCARE">View code on GitHub</a></p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="reveal">Projects</h2>
+    <p class="sub reveal">Each project shows the problem, what I built, and the result.</p>
+    <div class="projects">
+
+      <article class="card proj featured reveal">
+        <div>
+          <span class="badge">Paid client project</span>
+          <h3>Stock and Billing System</h3>
+          <ul class="tags"><li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>SQLite</li></ul>
+          <div class="links-row"><a href="https://github.com/athilaashraf/braud-inventory">View code on GitHub</a></div>
+        </div>
+        <dl class="pse">
+          <dt>Problem</dt><dd>A wholesale clothing business needed a reliable way to manage stock and billing.</dd>
+          <dt>Solution</dt><dd>I gathered the requirements, built the application and installed it on the client’s computer. It handles invoicing with percentage or fixed discounts, PDF invoices, low-stock alerts, and restores stock automatically when a bill is cancelled. Access is protected by an admin login with hashed credentials.</dd>
+          <dt>Result</dt><dd>The client reported that the system helped their business significantly.</dd>
+        </dl>
+      </article>
+
+      <article class="card proj reveal">
+        <div>
+          <span class="badge plain">Computer vision · MCA final-year project</span>
+          <h3>Smart Traffic Monitoring System</h3>
+          <ul class="tags"><li>Python</li><li>Flask</li><li>YOLOv8</li><li>SORT</li><li>OpenCV</li><li>NumPy</li></ul>
+          <div class="links-row"><a href="https://github.com/athilaashraf/trafficregulation">View code on GitHub</a></div>
+        </div>
+        <dl class="pse">
+          <dt>Problem</dt><dd>Traffic congestion is hard to measure and respond to without automated monitoring.</dd>
+          <dt>Solution</dt><dd>Real-time vehicle detection and tracking with YOLOv8 and SORT. It counts vehicles by lane, estimates congestion, and sends automated email alerts. A Flask back end provides separate admin and police dashboards.</dd>
+          <dt>Result</dt><dd>89.3% mAP@0.5 at 42 ms per frame, and 92.8% lane-counting accuracy. I presented my related research at the International Conference Synergy 2026.</dd>
+        </dl>
+      </article>
+
+      <article class="card proj reveal">
+        <div>
+          <span class="badge plain">Live app</span>
+          <h3>LearnIQ, an AI Tutoring App</h3>
+          <ul class="tags"><li>Python</li><li>Flask</li><li>Groq LLM API</li><li>Render</li><li>Gunicorn</li></ul>
+          <div class="links-row">
+            <a href="https://ai-tutor-5frh.onrender.com">Open live demo</a>
+            <a href="https://github.com/athilaashraf/LEARNIQ">View code on GitHub</a>
+          </div>
+        </div>
+        <dl class="pse">
+          <dt>Problem</dt><dd>Learners need explanations and practice that match their subject and grade level.</dd>
+          <dt>Solution</dt><dd>A three-step prompt pipeline that generates explanations, quizzes and feedback for different subjects and grade levels.</dd>
+          <dt>Result</dt><dd>Deployed and running on Render. When the AI model it used was discontinued, I found the cause and fixed the production failure.</dd>
+        </dl>
+      </article>
+
+      <article class="card proj reveal">
+        <div>
+          <span class="badge plain">AI agent</span>
+          <h3>VOXEN, a Voice-Controlled AI Agent</h3>
+          <ul class="tags"><li>Python</li><li>Streamlit</li><li>Groq Whisper</li><li>Groq LLaMA</li></ul>
+          <div class="links-row">
+            <a href="https://youtu.be/gQPRK--LxEM">Watch demo video</a>
+            <a href="https://github.com/athilaashraf/VOXEN">View code on GitHub</a>
+          </div>
+        </div>
+        <dl class="pse">
+          <dt>Problem</dt><dd>Everyday tasks like writing code, creating files and summarising text should work by voice.</dd>
+          <dt>Solution</dt><dd>It transcribes speech, uses an LLM to sort each request into one of four intents (code generation, file creation, summarisation, chat), and runs it through a modular tool engine.</dd>
+          <dt>Result</dt><dd>I tested local Whisper against a hosted speech API and moved to the hosted one because the local version was too slow and memory-heavy.</dd>
+        </dl>
+      </article>
+
+      <article class="card proj reveal">
+        <div>
+          <span class="badge plain">Full stack · Machine learning</span>
+          <h3>SymptoCare, a Hospital Management System</h3>
+          <ul class="tags"><li>Python</li><li>Django</li><li>MySQL</li><li>scikit-learn</li><li>REST APIs</li></ul>
+          <div class="links-row"><a href="https://github.com/athilaashraf/SYMPTOCARE">View code on GitHub</a></div>
+        </div>
+        <dl class="pse">
+          <dt>Problem</dt><dd>Hospitals, doctors and patients need one system to work together, with quick first guidance from symptoms.</dd>
+          <dt>Solution</dt><dd>A Django and MySQL application with a normalised database of 13+ tables, REST APIs, and separate modules for admins, doctors, hospitals and patients.</dd>
+          <dt>Result</dt><dd>A Random Forest model trained on 4,920 records, with 132 symptom features and 41 diseases, predicts diseases from symptoms.</dd>
+        </dl>
+      </article>
+
     </div>
+  </div>
+</section>
 
+<section id="skills">
+  <div class="container">
+    <h2 class="reveal">Skills</h2>
+    <div class="skills reveal" style="margin-top:28px">
+      <div class="card"><h3>Back end</h3><ul class="tags"><li>Python</li><li>Flask</li><li>Django</li><li>REST APIs</li><li>JSON</li><li>SQLAlchemy</li><li>Authentication</li></ul></div>
+      <div class="card"><h3>Front end</h3><ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Bootstrap</li></ul></div>
+      <div class="card"><h3>Databases</h3><ul class="tags"><li>SQL</li><li>MySQL</li><li>SQLite</li></ul></div>
+      <div class="card"><h3>AI</h3><ul class="tags"><li>LLM integration</li><li>Prompt design</li><li>AI agents</li><li>YOLOv8</li><li>OpenCV</li><li>scikit-learn</li></ul></div>
+      <div class="card"><h3>Deployment and tools</h3><ul class="tags"><li>Render</li><li>Gunicorn</li><li>Git</li><li>GitHub</li><li>Linux</li><li>Environment variables</li></ul></div>
+      <div class="card"><h3>Security</h3><ul class="tags"><li>Secrets management</li><li>Hashed credentials</li><li>Secure development</li></ul></div>
+    </div>
+  </div>
+</section>
 
-      <h2>Skills</h2>
-    <dl>
-      <dt>Back end</dt>
-      <dd>Python, Flask, Django, REST APIs, JSON, SQLAlchemy, authentication</dd>
-      <dt>Front end</dt>
-      <dd>HTML5, CSS3, JavaScript, Bootstrap</dd>
-      <dt>Databases</dt>
-      <dd>SQL (MySQL, SQLite)</dd>
-      <dt>AI</dt>
-      <dd>LLM integration, prompt design, AI agents, YOLOv8, OpenCV, scikit-learn</dd>
-      <dt>Deployment and tools</dt>
-      <dd>Render, Gunicorn, Git, GitHub, Linux, environment variables</dd>
-      <dt>Security</dt>
-      <dd>Secrets management, hashed credentials, secure development practices</dd>
-    </dl>
+<section id="certificates">
+  <div class="container">
+    <h2 class="reveal">Certificates</h2>
+    <p class="sub reveal">Select a certificate to view it in full size.</p>
+    <div class="certs reveal" id="certs"></div>
+  </div>
+</section>
 
-    <h2>Video Introduction</h2>
-    <p>
-      A short video about me and my projects:
-      <a href="https://www.youtube.com/watch?v=XlevF_dSk3E">Watch my video CV</a>
-    </p>
+<section id="education">
+  <div class="container">
+    <h2 class="reveal">Education</h2>
+    <div class="edu reveal" style="margin-top:28px">
+      <div class="card"><h3>Master of Computer Applications (MCA), 2026</h3>MES College of Engineering, Kuttippuram<br><b style="color:var(--accent)">CGPA 8.15</b></div>
+      <div class="card"><h3>Bachelor of Computer Applications (BCA), 2024</h3>University of Calicut<br><b style="color:var(--accent)">CGPA 8.025</b></div>
+    </div>
+  </div>
+</section>
 
-    <h2>Education</h2>
-    <ul class="plain">
-      <li><strong>Master of Computer Applications (MCA), 2026</strong><br>
-        MES College of Engineering, Kuttippuram. CGPA 8.15</li>
-      <li><strong>Bachelor of Computer Applications (BCA), 2024</strong><br>
-        University of Calicut. CGPA 8.025</li>
+<section id="contact">
+  <div class="container contact reveal">
+    <h2>Let’s work together</h2>
+    <p class="sub" style="margin-inline:auto">I am looking for software developer, full stack and AI roles in Dubai.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:athilaashrafp@gmail.com?subject=Hiring%20enquiry">Hire me</a>
+      <a class="btn ghost" href="Athila_Ashraf_CV.pdf" download>Download CV</a>
+    </div>
+    <ul>
+      <li><a href="mailto:athilaashrafp@gmail.com">athilaashrafp@gmail.com</a></li>
+      <li><a href="tel:+971541508784">+971 54 150 8784</a></li>
+      <li><a href="https://www.linkedin.com/in/athila-ashraf">LinkedIn</a></li>
+      <li><a href="https://github.com/athilaashraf">GitHub</a></li>
     </ul>
+  </div>
+</section>
+</main>
 
-    <h2>Contact</h2>
-    <p>I am looking for software developer, full stack and AI roles in Dubai.</p>
-    <ul class="plain">
-      <li>Email: <a href="mailto:athilaashrafp@gmail.com">athilaashrafp@gmail.com</a></li>
-      <li>Phone: <a href="tel:+971541508784">+971 54 150 8784</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/athila-ashraf">linkedin.com/in/athila-ashraf</a></li>
-      <li>GitHub: <a href="https://github.com/athilaashraf">github.com/athilaashraf</a></li>
-    </ul>
-    <a class="button" href="Athila_Ashraf_CV.pdf">Download CV</a>
-  </main>
+<footer>© 2026 Athila Ashraf. Dubai, UAE.</footer>
 
+<div class="mobar">
+  <a class="btn primary" href="mailto:athilaashrafp@gmail.com?subject=Hiring%20enquiry">Hire me</a>
+  <a class="btn ghost" href="Athila_Ashraf_CV.pdf" download>Download CV</a>
+</div>
+</div>
+
+<div id="lightbox" role="dialog" aria-label="Certificate preview"><img alt=""></div>
+
+<script>
+/* ===== Certificates: add yours here =====
+   Save images in a "certs" folder next to index.html, then add a line:
+   {title:"Certificate name", issuer:"Issuing organisation", img:"certs/my-cert.jpg"}  */
+const CERTS = [
+  // {title:"Certificate name", issuer:"Issuer", img:"certs/cert-1.jpg"},
+];
+
+/* theme */
+const root = document.documentElement, tbtn = document.getElementById('theme');
+function setTheme(t){ root.dataset.theme = t; tbtn.textContent = t==='dark' ? '☀' : '☾'; try{localStorage.setItem('theme',t)}catch(e){} }
+let saved = null; try{saved = localStorage.getItem('theme')}catch(e){}
+setTheme(saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+tbtn.onclick = () => { setTheme(root.dataset.theme==='dark' ? 'light' : 'dark'); };
+
+/* mobile menu */
+const menu = document.getElementById('menu'), links = document.getElementById('links');
+menu.onclick = () => { const o = links.classList.toggle('open'); menu.setAttribute('aria-expanded', o); };
+links.addEventListener('click', e => { if(e.target.tagName==='A') links.classList.remove('open'); });
+
+/* typed role */
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const roleEl = document.getElementById('role'), roleText = 'Software Developer | Full Stack | AI Applications';
+if(reduce){ roleEl.textContent = roleText; } else { let i=0; (function t(){ roleEl.textContent = roleText.slice(0,++i); if(i<roleText.length) setTimeout(t,45); })(); }
+
+/* scroll reveal */
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* certificates */
+const grid = document.getElementById('certs'), box = document.getElementById('lightbox');
+if(CERTS.length){
+  CERTS.forEach(c => {
+    const b = document.createElement('button'); b.className = 'card cert';
+    b.innerHTML = `<img src="${c.img}" alt="${c.title}" loading="lazy"><div><b>${c.title}</b><small>${c.issuer||''}</small></div>`;
+    b.onclick = () => { box.querySelector('img').src = c.img; box.classList.add('open'); };
+    grid.appendChild(b);
+  });
+} else {
+  grid.innerHTML = '<div class="card cert empty">Certificates coming soon.</div>';
+}
+box.onclick = () => box.classList.remove('open');
+addEventListener('keydown', e => { if(e.key==='Escape') box.classList.remove('open'); });
+
+/* background: vehicle-detection boxes drifting along lanes */
+const cv = document.getElementById('bg'), cx = cv.getContext('2d');
+let W, H, objs = [];
+const labels = ['car 0.93','car 0.89','truck 0.91','bus 0.87','car 0.95'];
+function size(){ W = cv.width = innerWidth; H = cv.height = innerHeight;
+  const n = Math.max(6, Math.min(14, Math.floor(W/110)));
+  objs = Array.from({length:n}, (_,i) => ({ lane:i%3, x:Math.random()*W, v:.35+Math.random()*.6, w:34+Math.random()*30, label:labels[i%labels.length] })); }
+function draw(){
+  const c = getComputedStyle(root).getPropertyValue('--canvas').trim();
+  cx.clearRect(0,0,W,H);
+  cx.lineWidth = 1; cx.setLineDash([10,14]); cx.strokeStyle = `rgba(${c},.14)`;
+  for(let l=0;l<3;l++){ const y = H*(.3+l*.22); cx.beginPath(); cx.moveTo(0,y+26); cx.lineTo(W,y+26); cx.stroke(); }
+  cx.setLineDash([]); cx.font = '11px JetBrains Mono, monospace';
+  objs.forEach(o => {
+    if(!reduce){ o.x += o.v * (o.lane===1 ? -1 : 1); if(o.x>W+80) o.x=-80; if(o.x<-80) o.x=W+80; }
+    const y = H*(.3+o.lane*.22), h = o.w*.55;
+    cx.strokeStyle = `rgba(${c},.45)`; cx.strokeRect(o.x,y,o.w,h);
+    cx.fillStyle = `rgba(${c},.55)`; cx.fillText(o.label, o.x, y-5);
+    cx.fillStyle = `rgba(${c},.12)`; cx.fillRect(o.x,y,o.w,h);
+  });
+  if(!reduce) requestAnimationFrame(draw);
+}
+addEventListener('resize', () => { size(); if(reduce) draw(); });
+size(); draw();
+tbtn.addEventListener('click', () => { if(reduce) draw(); });
+</script>
 </body>
 </html>
