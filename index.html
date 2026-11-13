@@ -336,6 +336,7 @@ footer{padding:28px 0 90px;text-align:center;color:var(--muted);font-size:14px}
 </div>
 
 <div id="lightbox" role="dialog" aria-label="Certificate preview"><img alt=""></div>
+  
 
 <script>
 /* ===== Certificates: add yours here =====
@@ -408,6 +409,11 @@ function draw(){
 addEventListener('resize', () => { size(); if(reduce) draw(); });
 size(); draw();
 tbtn.addEventListener('click', () => { if(reduce) draw(); });
+  /* open external links in a new tab */
+document.querySelectorAll('a[href^="http"]').forEach(a => {
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+});
 </script>
 </body>
 </html>
